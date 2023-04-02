@@ -1,0 +1,15 @@
+<Context 
+	path="/obc-website" 
+	docBase="${catalina.home}/apps/obc-website/obc-website.war"
+>
+	<Ejb 
+		name="ejb/EntityManagerFactory" 
+		type="Session"
+		home="org.openmdx.application.rest.ejb.Connection_2Home"
+		remote="org.openmdx.application.rest.ejb.Connection_2_0Remote"
+		deploymentid="opencrx_core_CRX_EntityManagerFactoryAccessor"
+	/>	
+	
+	<ResourceLink name="Segment" global="ObcSegmentName" type="java.lang.String" />
+</Context>
+

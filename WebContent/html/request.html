@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<script type="text/javascript" src="scripts/HTTP.js"></script>
+<script type="text/javascript" src="scripts/request.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Welcome to OBC</title>
+</head>
+<body>
+	<div id="mainform">
+	<table>
+		<tr>
+			<td>
+				Contact:
+			</td>
+			<td>
+				<input type="text" name="contactId" id="contactId"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Category:
+			</td>
+			<td>
+				<input type="text" name="categoryId" id="categoryId"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Description:
+			</td>
+			<td>
+				<input type="text" name="descr" id="descr"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Name:
+			</td>
+			<td>
+				<input type="text" name="name" id="name"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Priority:
+			</td>
+			<td>
+				<input type="text" name="priority" id="priority"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+				<input type="button" value=Submit onclick="HTTP.sendPost(Req.formXML(), 'http://localhost:8080/obc-website/CreateRequest', Req.handleRequest)"></input>
+			</td>
+		</tr>
+	</table>
+	</div>
+	
+	<div id="result" style="display : none">
+	</div>
+
+</body>
+</html>

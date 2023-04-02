@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>MyWeb</display-name>
+  <servlet id="DocumentRequest">
+    <servlet-name>GetLinksServlet</servlet-name>
+    <servlet-class>ru.obc.website.servlet.GetLinksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetLinksServlet</servlet-name>
+    <url-pattern>/GetLinksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetDocumentServlet</display-name>
+    <servlet-name>GetDocumentServlet</servlet-name>
+    <servlet-class>ru.obc.website.servlet.GetDocumentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetDocumentServlet</servlet-name>
+    <url-pattern>/GetDocumentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckAccountServlet</display-name>
+    <servlet-name>CheckAccountServlet</servlet-name>
+    <servlet-class>ru.obc.website.servlet.CheckAccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckAccountServlet</servlet-name>
+    <url-pattern>/CheckAccountServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetCategoryServlet</display-name>
+    <servlet-name>GetCategoryServlet</servlet-name>
+    <servlet-class>ru.obc.website.servlet.GetCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetCategoryServlet</servlet-name>
+    <url-pattern>/GetCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateRequestServlet</display-name>
+    <servlet-name>CreateRequestServlet</servlet-name>
+    <servlet-class>ru.obc.website.servlet.CreateRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateRequestServlet</servlet-name>
+    <url-pattern>/CreateRequest</url-pattern>
+  </servlet-mapping>
+  
+  <security-constraint>
+   <web-resource-collection>
+   	<web-resource-name>test</web-resource-name>
+   	<url-pattern>*.html</url-pattern>
+   </web-resource-collection>
+   <auth-constraint>
+    <role-name>OpenCrxAdministrator</role-name>
+   </auth-constraint>
+  </security-constraint>
+  
+  <login-config>
+  	<auth-method>BASIC</auth-method>
+  	<realm-name>Test Realm</realm-name>
+  </login-config>
+  
+  <security-role>
+  	<role-name>OpenCrxAdministrator</role-name>
+  </security-role>
+  
+  <ejb-ref id="ejb_EntityManagerFactory">
+    <ejb-ref-name>ejb/EntityManagerFactory</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <home>org.openmdx.application.rest.ejb.Connection_2Home</home>
+    <remote>org.openmdx.application.rest.ejb.Connection_2_0Remote</remote>
+  </ejb-ref>
+  
+</web-app>

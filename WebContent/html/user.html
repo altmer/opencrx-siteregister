@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<script type="text/javascript" src="scripts/HTTP.js"></script>
+<script type="text/javascript" src="scripts/user.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Welcome to OBC</title>
+</head>
+<body>
+	<div id="mainform">
+	<table>
+		<tr>
+			<td>
+				Name:
+			</td>
+			<td>
+				<input type="text" name="name" id="name"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Company:
+			</td>
+			<td>
+				<input type="text" name="company" id="company"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				City:
+			</td>
+			<td>
+				<input type="text" name="city" id="city"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Phone:
+			</td>
+			<td>
+				<input type="text" name="phone" id="phone"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				E-mail:
+			</td>
+			<td>
+				<input type="text" name="email" id="email"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Source:
+			</td>
+			<td>
+				<input type="text" name="source" id="source"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Subscribe:
+			</td>
+			<td>
+				<input type="checkbox" name="subscribe" id="subscribe"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ID:
+			</td>
+			<td>
+				<input type="text" name="accountId" id="accountId"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Folder:
+			</td>
+			<td>
+				<input type="text" name="folder" id="folder"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+				<input type="button" value=Submit onclick="HTTP.sendPost(User.formXML(), 'http://localhost:8080/obc-website/GetLinksServlet', User.handleRequest)"></input>
+			</td>
+		</tr>
+	</table>
+	</div>
+	
+	<div id="result" style="display : none">
+		Result: <br/>
+		<table id="result_table" border="1">
+			<tr>
+				<td>
+					Result code
+				</td>
+				<td>
+					Error message
+				</td>
+			</tr>
+		</table><br/>
+		Account: <br/>
+		<table id="account_table" border="1">
+			<tr>
+				<td>
+					ID
+				</td>
+				<td>
+					Password
+				</td>
+			</tr>
+		</table><br/>
+		Document: <br/>
+		<table id="document_table" border="1">
+			<tr>
+				<td>
+					Name
+				</td>
+				<td>
+					Title
+				</td>
+				<td>
+					Abstract
+				</td>
+				<td>
+					Number
+				</td>
+				<td>
+					Created
+				</td>
+				<td>
+					Modified
+				</td>
+				<td>
+					Description
+				</td>
+				<td>
+					Author
+				</td>
+				<td>
+					Type
+				</td>
+				<td>
+					Is Folder
+				</td>
+			</tr>
+		</table><br/>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Obc Website" default="dist" basedir=".">
+	<property name="src" location="src" />
+	<property name="war" location="war" />
+	<property name="jar" location="jar" />
+	<property name="distrib" location="distribution"/>
+	<property name="lib" location="lib" />
+	<property name="build" location="build/classes"/>
+	<property name="webinf" location="WebContent/WEB-INF"/>
+	<property name="metainf" location="WebContent/META-INF"/>
+	<property name="earinf" location="ear-lib/APP-INF/lib"/>
+	<property name="ear" location="ear-lib"/>
+	<property name="webcontent" location="WebContent"/>
+	<property name="app" location="app"/>
+	
+	<path id="classpath">
+		<fileset dir="${lib}">
+			<include name="*.jar" />				
+		</fileset>
+	</path>
+	
+	<target name="prepare">
+		<mkdir dir="${build}" />
+		<mkdir dir="${earinf}" />		
+	</target>
+	
+	<target name = "compile" depends="prepare">
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+	
+	<target name="dist" depends="compile">
+		<jar destfile="${jar}/obc-website.jar">
+			<fileset dir="${build}" />
+		</jar>
+		<war destfile="${war}/obc-website.war" webxml="${webinf}/web.xml">
+			<fileset dir="${webcontent}/html" />
+			<metainf dir="${metainf}" />
+			<webinf dir="${webinf}"/>
+		</war>
+		<copy todir="${earinf}">
+			<fileset dir="${jar}"/>
+			<fileset dir="${lib}"/>
+		</copy>
+		<ear destfile="${distrib}/obc-website.ear" appxml="${app}/application.xml">
+			<fileset dir="${ear}"/>
+			<fileset dir="${war}"/>
+		</ear>
+		<delete dir="${build}" />
+		<delete dir="${earinf}" />	
+		<delete file="${war}/obc-website.war" />
+		<delete file="${jar}/obc-website.jar" />
+	</target>
+</project>
+ 
